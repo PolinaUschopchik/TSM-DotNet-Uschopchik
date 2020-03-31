@@ -3,18 +3,11 @@ using System;
 namespace calendar
 {
     class Program
-	{
-        string[] tasks = new string[7];
-        enum Week : int 
-        {
-            Monday = 1,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday,
-            Sunday,
-        }
+    {
+        string[][] tasks = new string[12][];
+
+
+
         static void Menu()
 		{
             Console.WriteLine("Choose what you want to do");
@@ -40,67 +33,54 @@ namespace calendar
                 Menu();
             }
 		}
-        static void ChoiseDay()
+        static int ChoiseMonth()
         {
-            Week day;
-            string enterDay;
-            Console.WriteLine("Enter day");
-            enterDay = Console.ReadLine();
-            switch (enterDay)
-            {
-                case "Mon":
-                case "Monday":
-                case "1":
-                    day = Week.Monday;
-                    break;
-                case "Tue":
-                case "Tuesday":
-                case "2":
-                    day = Week.Tuesday;
-                    break;
-                case "Wed":
-                case "Wednesday":
-                case "3":
-                    day = Week.Wednesday;
-                    break;
-                case "Thu":
-                case "Thursday":
-                case "4":
-                    day = Week.Thursday;
-                    break;
-                case "Fri":
-                case "Friday":
-                case "5":
-                    day = Week.Friday;
-                    break;
-                case "Sat":
-                case "Saturday":
-                case "6":
-                    day = Week.Saturday;
-                    break;
-                case "Sun":
-                case "Sunday":
-                case "7":
-                    day = Week.Sunday;
-                    break;
-            }
-            
+            Console.WriteLine("Enter month: ");
+            int enterMonth = Console.Read();
+
+            return enterMonth;
+
+        }
+        static int ChoiseDay()
+        {
+            Console.WriteLine("Enter day: ");
+            int enterDay = Console.Read();
+
+            return enterDay;
+
         }
         static void AddTask()
         {
-            ChoiseDay();
-            tasks[day] = Console.ReadLine();
-
+            int i = ChoiseMonth() - 1;
+            int j = ChoiseDay() - 1;
+            tasks[i][j] = Console.ReadLine();
         }
         static void DeleteTask()
         {
-            ChoiseDay();
-            tasks[day] = null;
+            int i = ChoiseMonth() - 1;
+            int j = ChoiseDay() - 1;
+            tasks[i][j] = null;
         }
         static void ViewTask()
         {
-            ChoiseDay();
-            Console.WriteLine(tasks[day]);
+            int i = ChoiseMonth() - 1;
+            int j = ChoiseDay() - 1;
+            Console.WriteLine(tasks[i][j]);
+        }
+        protected void IndexOutOfRangeException()//I didn’t understand what to do here
+        {
+
+            if (i < 0 || j < 0)
+            {
+                try
+                {
+                    Console.WriteLine("Wrong date");
+                }
+                finally
+                {
+                    Console.WriteLine("Oops");
+                }
+            }
         }
         static void ExitOrMenu()
         {
@@ -119,8 +99,9 @@ namespace calendar
         }
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Welcome to the calendar");
+            DateTime now = DateTime.Now;
+            string year = now.ToString("year");
+            Console.WriteLine("Welcome to the calendar. Today is: "+ now.ToString("DD.MM.yyyy"));
             Menu();
 		}
 	}
