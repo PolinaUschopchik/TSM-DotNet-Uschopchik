@@ -1,0 +1,2 @@
+/Users/polina/Documents/GitHub/TSM-DotNet-Uschopchik/src/Sendler/Sendler/obj/Debug/Sendler.csprojAssemblyReference.cache
+/Users/polina/Documents/GitHub/TSM-DotNet-Uschopchik/src/Sendler/Sendler/obj/Debug/Sendler.csproj.CoreCompileInputs.cache
