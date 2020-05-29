@@ -40,31 +40,31 @@ namespace Domashka
             Show?.Invoke($"Added to account {money}");
         }
     }
-    class Mistake
-    {
-        static void MistakeException()
-        {
-            try
-            {
-                Account account = new Account(100);
-                account.Show += Display;
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+    //class Mistake
+    //{
+    //    static void MistakeException()
+    //    {
+    //        try
+    //        {
+    //            Account account = new Account(100);
+    //            account.Show += Display;
+    //        }
+    //        catch (ArgumentException ex)
+    //        {
+    //            Console.WriteLine(ex.Message);
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            Console.WriteLine(ex.Message);
+    //        }
 
-            Account account = new Account(100);
-            Console.Read();
-        }
-        static void Display()
-        {
-            Console.WriteLine();
-        }
-    }
+    //        Account account = new Account(100);
+    //        Console.Read();
+    //    }
+    //    static void Display()
+    //    {
+    //        Console.WriteLine();
+    //    }
+    //}
 }
 

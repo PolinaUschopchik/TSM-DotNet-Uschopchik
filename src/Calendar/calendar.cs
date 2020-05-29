@@ -4,17 +4,15 @@ namespace calendar
 {
     class Program
     {
-        string[][] tasks = new string[12][];
-
-
+        static string[][] tasks = new string[12][];
 
         static void Menu()
-		{
+        {
             Console.WriteLine("Choose what you want to do");
             Console.WriteLine("\tAdd a task\tEnter: 1");
             Console.WriteLine("\tDelete a task\tEnter: 2");
             Console.WriteLine("\tView a task\tEnter: 3");
-            int choise = Console.Read();
+            int choise = int.Parse(Console.ReadLine());
             if (choise == 1)
             {
                 AddTask();
@@ -32,7 +30,7 @@ namespace calendar
                 Console.WriteLine("You entered something illegible");
                 Menu();
             }
-		}
+        }
         static int ChoiseMonth()
         {
             Console.WriteLine("Enter month: ");
@@ -67,21 +65,23 @@ namespace calendar
             int j = ChoiseDay() - 1;
             Console.WriteLine(tasks[i][j]);
         }
-        protected void IndexOutOfRangeException()//I didn’t understand what to do here
-        {
 
-            if (i < 0 || j < 0)
-            {
-                try
-                {
-                    Console.WriteLine("Wrong date");
-                }
-                finally
-                {
-                    Console.WriteLine("Oops");
-                }
-            }
-        }
+        //protected void IndexOutOfRangeException()//I didn’t understand what to do here
+        //{
+
+        //    if (i < 0 || j < 0)
+        //    {
+        //        try
+        //        {
+        //            Console.WriteLine("Wrong date");
+        //        }
+        //        finally
+        //        {
+        //            Console.WriteLine("Oops");
+        //        }
+        //    }
+        //}
+
         static void ExitOrMenu()
         {
             int exit;
@@ -103,6 +103,6 @@ namespace calendar
             string year = now.ToString("year");
             Console.WriteLine("Welcome to the calendar. Today is: "+ now.ToString("DD.MM.yyyy"));
             Menu();
-		}
-	}
+        }
+    }
 }
